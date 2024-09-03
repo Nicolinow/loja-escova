@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+button{
+    appearance: none;
+    border: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: #FFFFFF;
+}
+header{
+    width: 100%;
+    height: 70px;
+    background-color: #C1121F;
+    display: flex;
+}
+.header-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+
+    > h2{
+        margin: 0;
+    }
+    > button{
+        background: url('./images/carrinho.svg') no-repeat;
+        background-size: 35px;
+        width: 35px;
+        aspect-ratio: 1/1;
+    }
+}
+main{
+    background: blue;
+}
+.row-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.row-one{
+    height: 300px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+
+    > h2{
+        margin: 0;
+        padding-top: 30px;
+        text-transform: uppercase;
+        font-size: 3rem;
+        font-weight: 700;
+        position: relative;
+    }
+    .row-content{
+        display: flex;
+        width: 80%;
+        height: 200px;
+        overflow: visible;
+        justify-content: center;
+
+        > .column-one{
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            > p{
+                font-size: 1.6rem;
+                margin: 0;
+                padding-bottom: 10px;
+            }
+
+            > .column-one-price{
+                display: flex;
+                justify-content: flex-start;
+
+                > p{
+                    margin: 0;
+                    padding-top: 6px;
+                    padding-right: 5px;
+                }
+                > b{
+                    font-size: 2.5rem;
+                }
+            }
+        }
+
+        > .column-two{
+            position: relative;
+            width: 400px;
+
+            > img{
+                transform: translate(70px, -70px);
+                width: 440px;
+                object-fit: cover;
+            }
+        }
+
+        > .column-three{
+            width: 300px;
+            display: flex;
+            justify-content: flex-end;
+            > p{
+                text-transform: uppercase;
+                color: #ECD0AC;
+                font-size: 1.7rem;
+            }
+        }
+    }
+}
+
