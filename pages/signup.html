@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../styles/formStyle.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+</head>
+<body>
+
+    <header>
+        <h2>escovas.com</h2>
+    </header>
+
+    <main>
+        <section class="signup">
+            <form id="signup-form">
+                <div>
+                    <span></span>
+                    <p>Faça seu cadastro</p>
+                </div>
+                <section>
+                    <div class="name-input">
+                        <input id="username" type="text" placeholder="" required>
+                        <label for="username">Nome</label>
+                    </div>
+                    <div class="email-input">
+                        <input id="email" type="email" placeholder="" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="password-input">
+                        <input id="password" type="password" minlength="4" autocomplete="off" placeholder="" required>
+                        <label for="password">Senha</label>
+                    </div>
+                    <button type="submit">Cadastrar</button>
+                </section>
+            </form>
+            <a href="signin.html">Já possui uma conta?</a>
+        </section>
+    </main>
+
+    <script src="../scripts/data.js"></script>
+</body>
+</html>

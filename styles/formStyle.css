@@ -1,0 +1,151 @@
+body{
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+header{
+    width: 100%;
+    height: 70px;
+    color: #C1121F;
+    display: flex;
+    align-items: center;
+
+    > h2{
+        margin: 0;
+        font-size: 2rem;
+        padding-left: 50px;
+    }
+}
+main{
+    width: 50%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup,
+.signin{
+    width: 70%;
+    color: #262626;
+    outline: 1px solid #cecece;
+    border-radius: 10px;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    > a{
+        cursor: pointer;
+        margin: 0;
+        font-size: 0.9rem;
+    }
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 80%;
+
+    > section{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        > button{
+            padding: 10px;
+        }
+        > div:not(:first-child):has(input:focus), 
+          div:not(:first-child):has(input:not(:placeholder-shown)){
+            margin-top: 15px;
+        }
+        > div:has(input:focus), 
+          div:has(input:not(:placeholder-shown)){
+            outline: 1px solid #8b8b8b;
+            outline-offset: 5px;
+            border-radius: 5px;
+        }
+        > button{
+            cursor: pointer;
+            background-color: #e6e6e6;
+            font-size: 1rem;
+            transition: all 0.3s;
+
+        }
+        > button:hover{
+            color: #FFFFFF;
+            background-color: #C1121F;
+            border-radius: 10px;
+        }
+    }
+
+    > section > div{
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        position: relative;
+        transition: all 0.3s;
+
+        > input{
+            border: 0;
+            padding: 13px;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        > input:focus{
+            outline: none;
+        }
+        > input:not(:placeholder-shown):valid, input:not(:placeholder-shown):valid + label{
+            background-color: #d1ffd0;
+        }
+        > input:not(:placeholder-shown):invalid, input:not(:placeholder-shown):invalid + label{
+            background-color: #ffdfdf;
+        }
+        > input:focus + label, input:not(:placeholder-shown) + label{
+            top: -50%;
+            left: 2%;
+            padding: 5px;
+            opacity: 1;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+
+        }
+        > input:focus:invalid, input:focus:invalid + label{
+            background-color: #fff3d8;
+        }
+        > label{
+            background-color: #f8f8f8;
+            pointer-events: none;
+            position: absolute;
+            top: 27%;
+            left: 5%;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+    }
+
+    > div{
+        display: flex;
+        flex-direction: column;
+
+        > span{
+            background: url('../images/user.svg') no-repeat;
+            width: 40px;
+            aspect-ratio: 1/1;
+            background-size: contain;
+        }
+        > p{
+            margin: 0;
+            margin-top: 5px;
+            color: #C1121F;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+    }
+}

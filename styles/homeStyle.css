@@ -1,24 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-button{
-    appearance: none;
-    border: 0;
-    padding: 0;
-}
-body{
-    margin: 0;
-    font-family: 'Inter', sans-serif, system-ui;
-    color: #FFFFFF;
-}
 header{
     width: 100%;
     height: 70px;
     background-color: #C1121F;
     display: flex;
-}
-button{
-    appearance: none;
-    border: 0;
 }
 .header-wrapper{
     width: 100%;
@@ -29,9 +13,10 @@ button{
 
     > h2{
         margin: 0;
+        font-size: 2rem;
     }
-    > button{
-        background: url('./images/carrinho.svg') no-repeat;
+    > a {
+        background: url('../images/carrinho.svg') no-repeat;
         background-size: 35px;
         width: 35px;
         aspect-ratio: 1/1;
@@ -119,7 +104,7 @@ main{
             > button::after{
                 content: '';
                 position: absolute;
-                background: url('./images/carrinho.svg') no-repeat;
+                background: url('../images/carrinho.svg') no-repeat;
                 background-size: contain;
                 width: 20px;
                 aspect-ratio: 1/1;
@@ -232,7 +217,7 @@ main{
         > button::after{
             content: '';
             position: absolute;
-            background: url('./images/carrinho.svg') no-repeat;
+            background: url('../images/carrinho.svg') no-repeat;
             background-size: contain;
             width: 20px;
             aspect-ratio: 1/1;
@@ -332,7 +317,7 @@ main{
         > button::after{
             content: '';
             position: absolute;
-            background: url('./images/carrinho.svg') no-repeat;
+            background: url('../images/carrinho.svg') no-repeat;
             background-size: contain;
             width: 20px;
             aspect-ratio: 1/1;
@@ -421,7 +406,7 @@ main{
                 > button::after{
                     content: '';
                     position: absolute;
-                    background: url('./images/carrinho.svg') no-repeat;
+                    background: url('../images/carrinho.svg') no-repeat;
                     background-size: contain;
                     width: 20px;
                     aspect-ratio: 1/1;
@@ -562,7 +547,7 @@ main{
         > button::after{
             content: '';
             position: absolute;
-            background: url('./images/carrinho.svg') no-repeat;
+            background: url('../images/carrinho.svg') no-repeat;
             background-size: contain;
             width: 20px;
             aspect-ratio: 1/1;

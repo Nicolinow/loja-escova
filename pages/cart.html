@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento</title>
+    <link rel="stylesheet" href="../styles/cartStyle.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+</head>
+<body>
+    
+    <header>
+        <h2>escovas.com</h2>
+    </header>
+
+    <main>
+        <h2>Seu carrinho</h2>
+        <section>
+            <div class="Qtd">
+                <h3>Qtd</h3>
+                <div class="Qtd-product">
+                    <p>3</p>
+
+                    <!-- os itens vão aparecer aqui -->
+
+                </div>
+            </div>
+            <div class="Item">
+                <h3>Item</h3>
+                <div class="Item-product">
+                   <p>Escova bambu serdas macias</p>
+
+                    <!-- os itens vão aparecer aqui -->
+
+                </div>
+            </div>
+            <div class="Up">
+                <h3>Preço Unitário</h3>
+                <div class="Up-product">
+                    <p>R$ 20,00</p>
+
+                    <!-- os itens vão aparecer aqui -->
+
+                </div>
+            </div>
+            <div class="Tv">
+                <h3>Valor Total</h3>
+                <div class="Tv-product">
+                    <p>R$ 60,00</p>
+                    <p>teste de overflow</p>
+                    <p>teste de overflow</p>
+                    <p>teste de overflow</p>
+                    <p>teste de overflow</p>
+                    <p>teste de overflow</p>
+                    <p>teste de overflow</p>
+                    <p>teste de overflow</p>
+                    <p>teste de overflow</p>
+                    <p>teste de overflow</p>
+                    <p>teste de overflow</p>
+                    <p>teste de overflow</p>
+                    <p>teste de overflow</p>
+                    <p>teste de overflow</p>
+
+                    <!-- os itens vão aparecer aqui -->
+
+                </div>
+            </div>
+        </section>
+        <div class="bottom-info">
+            <div class="frete">
+                <h3>Calcule o frete</h3>
+                <div>
+                    <button disabled for="cep" id="calcularFrete">Calcular</button>
+                    <input id="cep" placeholder="123456-789" type="text" pattern="\d{5}-\d{3}" required minlength="9" maxlength="9" autocomplete="off"> 
+                    <label for="cep">CEP</label>
+                </div>
+            </div>
+            <div class="total-value">
+                <div class="subtotal">
+                    <h4>Subtotal</h4>
+                    <p>
+                        R$60,00
+                        <!-- Valor dinamico aqui -->
+                    </p>
+                </div>
+                <div class="frete">
+                    <h4>Frete</h4>
+                    <p id="resultado">a</p>
+                </div>
+                <div class="total">
+                    <h4>Total</h4>
+                    <p>
+                        R$80,00
+                        <!-- Valor dinamico aqui -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../scripts/CEP.js"></script>
+</body>
+</html>
