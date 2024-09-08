@@ -16,6 +16,10 @@ header{
         margin: 0;
         font-size: 2rem;
         padding-left: 50px;
+
+        > a{
+            color: #FFFFFF;
+        }
     }
 }
 main{
@@ -42,7 +46,7 @@ main{
         overflow-y: scroll;
         transition: all 0.5s;
         
-        > div{
+        div{
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -67,8 +71,10 @@ main{
     align-items: center;
 
     > .frete{
-
         > h3{
+            color: #C1121F;
+            font-size: 1.4rem;
+            font-weight: 900;
             margin: 0;
             margin-bottom: 15px;
         }
@@ -116,34 +122,135 @@ main{
             width: 200px;
             display: flex;
             align-items: center;
+            border-bottom: 1px solid #cecece;
 
             > h4{
                 text-align: end;
+                font-weight: 400;
                 width: 50%;
                 margin: 10px;
-                font-size: 1.2rem;
+                font-size: 1.5rem;
+
             }
-            > p{
-                width: 50%;
+            > p{      
+                width: fit-content;
                 margin: 0;
+                padding: 8px;
+                border-radius: 10px;
             }
+        }
+        > .total h4{
+            font-weight: 600;
+        }
+    }
+}
+.payment{
+    align-self: flex-end;
+
+    > a {
+        display: flex;
+        margin-right: 120px;
+        margin-bottom: 20px;
+        align-items: center;
+        gap: 10px;
+    
+        > h3{
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #C1121F;
+            padding-bottom: 5px;
+        }
+        > span{
+            background: url('../images/Arrow.svg') no-repeat;
+            background-size: contain;
+            width: 70px;
+            aspect-ratio: 1/1;
+            transition: all 0.3s;
+        }
+    }
+    > a:hover{
+        > span{
+            transform: translateX(10px);
         }
     }
 }
 .Item{
-    max-width: 300px;
+    max-width: 350px;
+    width: 350px;
+
+    > div {
+        max-width: 100%;
+    }
 }
 .Up,
 .Qtd,
 .Tv{
     max-width: 100px;
 }
-#resultado {
+.quantity{
+    width: 20px;
+    outline: 1px solid transparent;
+    border-radius: 2px;
+    transition: all 0.4s;
+}
+.Qtd-product:has(p:hover) p:hover .quantity{
+    outline: 1px solid #cecece;
+}
+.frete-content {
     opacity: 0;
     transform: translateX(5px);
     transition: all 0.4s;
 }
-#resultado.show {
+.total-content{
+    opacity: 0;
+    transform: translateX(5px);
+    transition: all 0.4s 0.2s;
+}
+.fade-in {
+    opacity: 0;
+    transform: translateX(5px);
+}
+.show {
+    opacity: 1;
+    transform: translateX(0);
+    animation: highlight 0.6s 0.1s ease-in-out;
+}
+
+@keyframes highlight {
+    50%{
+        background-color: #ff9797;
+    }
+}
+.Qtd-product > p > input{
+    text-align: center;
+}
+.decrease, .increase{
+    opacity: 0;
+    width: 20px;
+    aspect-ratio: 1/1;
+    outline: 1px solid #cecece;
+    background: transparent;
+    transform: translateY(3px);
+    transition: 0.4s, background-color 0.2s, color 0.2s, border-radius 0.2s;
+    cursor: pointer;
+}
+.decrease:hover,
+.increase:hover{
+    background-color: #262626;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+.Qtd-product:has(p:hover) p:hover .decrease,
+.Qtd-product:has(p:hover) p:hover .increase{
     opacity: 1;
     transform: translate(0);
+}
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
 }

@@ -10,7 +10,7 @@
 <body>
 
     <header>
-        <h2>escovas.com</h2>
+        <h2><a href="index.html">escovas.com</a></h2>
     </header>
 
     <main>
@@ -22,11 +22,11 @@
                 </div>
                 <section>
                     <div class="email-input">
-                        <input id="login-email" type="email" placeholder="" required >
+                        <input id="login-email" type="email" autocomplete="off" placeholder="" required >
                         <label for="login-email">Email</label>
                     </div>
                     <div class="password-input">
-                        <input id="login-password" type="password"  minlength="4" autocomplete="off" placeholder="" required >
+                        <input id="login-password" type="password" minlength="6" maxlength="10" autocomplete="off" placeholder="" required >
                         <label for="login-password">Senha</label>
                     </div>
                     <button type="submit">Entrar</button>

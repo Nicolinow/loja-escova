@@ -16,6 +16,10 @@ header{
         margin: 0;
         font-size: 2rem;
         padding-left: 50px;
+
+        > a{
+            color: #C1121F;
+        }
     }
 }
 main{

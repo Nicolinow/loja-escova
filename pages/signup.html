@@ -10,7 +10,7 @@
 <body>
 
     <header>
-        <h2>escovas.com</h2>
+        <h2><a href="index.html">escovas.com</a></h2>
     </header>
 
     <main>
@@ -22,15 +22,37 @@
                 </div>
                 <section>
                     <div class="name-input">
-                        <input id="username" type="text" placeholder="" required>
+                        <input 
+                        id="username" 
+                        type="text" 
+                        placeholder="" 
+                        autocomplete="off" 
+                        pattern="^[A-Za-z]{2,} [A-Za-z]{2,}$"
+                        title="O nome completo deve conter pelo menos um nome e um sobrenome, ambos com no mínimo 2 caracteres."
+                        required>
                         <label for="username">Nome</label>
                     </div>
                     <div class="email-input">
-                        <input id="email" type="email" placeholder="" required>
+                        <input 
+                            id="email" 
+                            type="email" 
+                            placeholder="" 
+                            autocomplete="off" 
+                            required
+                        >
                         <label for="email">Email</label>
                     </div>
                     <div class="password-input">
-                        <input id="password" type="password" minlength="4" autocomplete="off" placeholder="" required>
+                        <input 
+                            id="password" type="password" 
+                            minlength="6" 
+                            maxlength="10" 
+                            title="A senha deve conter de 6 a 10 caracteres, incluindo letras maiúsculas, minúsculas, números e caracteres especiais."
+                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).*$" 
+                            autocomplete="off" 
+                            placeholder="" 
+                            required
+                        >
                         <label for="password">Senha</label>
                     </div>
                     <button type="submit">Cadastrar</button>
@@ -41,5 +63,6 @@
     </main>
 
     <script src="../scripts/data.js"></script>
+
 </body>
 </html>
