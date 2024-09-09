@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="../styles/cartStyle.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+</head>
+<body>
+    
+    <header>
+        <h2><a href="index.html">escovas.com</a></h2>
+    </header>
+
+    <main>
+        <h2>Seu carrinho</h2>
+        <section>
+            <div class="Qtd">
+                <h3>Qtd</h3>
+                <div class="Qtd-product">
+                    <p class="quantity-control">
+                        <button class="decrease">↓</button>
+                        <input 
+                        class="quantity"
+                        type="number" 
+                        id="quantity1"  cada um vai precisar ter um ID único
+                        value="1" 
+                        min="1" 
+                        max="10">
+                        <button class="increase">↑</button>
+                    </p>
+                    <p class="quantity-control">
+                        <button class="decrease">↓</button>
+                        <input 
+                        class="quantity"
+                        type="number" 
+                        id="quantity2"  cada um vai precisar ter um ID único
+                        value="1" 
+                        min="1" 
+                        max="10">
+                        <button class="increase">↑</button>
+                    </p>
+                    <p class="quantity-control">
+                        <button class="decrease">↓</button>
+                        <input 
+                        class="quantity"
+                        type="number" 
+                        id="quantity3"  cada um vai precisar ter um ID único
+                        value="3" 
+                        min="1" 
+                        max="10">
+                        <button class="increase">↑</button>
+                    </p>
+
+                    <!-- os itens vão aparecer aqui -->
+
+                </div>
+            </div>
+            <div class="Item">
+                <h3>Item</h3>
+                <div class="Item-product">
+                    <p>Escova bambu serdas macias</p>
+                    <p>Escova elétrica</p>
+                    <p>Escova individual</p>
+                    <!-- os itens vão aparecer aqui -->
+
+                </div>
+            </div>
+            <div class="Up">
+                <h3>Preço Unitário</h3>
+                <div class="Up-product">
+                    <p>R$ 79,00</p>
+                    <p>R$ 154,00</p>
+                    <p>R$ 29,90</p>
+
+                    <!-- os itens vão aparecer aqui -->
+
+                </div>
+            </div>
+            <div class="Tv">
+                <h3>Valor Total</h3>
+                <div class="Tv-product">
+                    <p>R$ 79,00</p>
+                    <p>R$ 154,00</p>
+                    <p>R$ 89,70</p>
+                    <p>teste</p>
+                    <p>teste</p>
+                    <p>teste</p>
+                    <p>teste</p>
+                    <p>teste</p>
+
+
+                    <!-- os itens vão aparecer aqui -->
+
+                </div>
+            </div>
+        </section>
+        <div class="bottom-info">
+            <div class="frete">
+                <h3>Calcule o frete</h3>
+                <div>
+                    <button disabled for="cep" id="calcularFrete">Calcular</button>
+                    <input id="cep" placeholder="123456-789" type="text" pattern="\d{5}-\d{3}" required minlength="9" maxlength="9" autocomplete="off"> 
+                    <label for="cep">CEP</label>
+                </div>
+            </div>
+            <div class="total-value">
+                <div class="subtotal">
+                    <h4>Subtotal</h4>
+                    <p class="subtotal-content"> 
+                        R$322,70
+                        <!-- Valor dinamico aqui -->
+                    </p>
+                </div>
+                <div class="frete">
+                    <h4>Frete</h4>
+                    <p class="frete-content" id="resultado">a</p>
+                </div>
+                <div class="total">
+                    <h4>Total</h4>
+                    <p class="total-content" id="total">
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="payment">
+            <a href="payment.html">
+                <h3>Pagamento</h3>
+                <span></span>
+            </a>
+        </div>
+    </main>
+
+    <script src="../scripts/CEP.js"></script>
+</body>
+</html>

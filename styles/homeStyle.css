@@ -1,24 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-button{
-    appearance: none;
-    border: 0;
-    padding: 0;
-}
-body{
-    margin: 0;
-    font-family: 'Inter', sans-serif, system-ui;
-    color: #FFFFFF;
-}
 header{
     width: 100%;
     height: 70px;
     background-color: #C1121F;
     display: flex;
-}
-button{
-    appearance: none;
-    border: 0;
 }
 .header-wrapper{
     width: 100%;
@@ -29,9 +13,14 @@ button{
 
     > h2{
         margin: 0;
+        font-size: 2rem;
+        
+        > a{
+            color: #FFFFFF;
+        }
     }
-    > button{
-        background: url('./images/carrinho.svg') no-repeat;
+    > a {
+        background: url('../images/carrinho.svg') no-repeat;
         background-size: 35px;
         width: 35px;
         aspect-ratio: 1/1;
@@ -119,7 +108,7 @@ main{
             > button::after{
                 content: '';
                 position: absolute;
-                background: url('./images/carrinho.svg') no-repeat;
+                background: url('../images/carrinho.svg') no-repeat;
                 background-size: contain;
                 width: 20px;
                 aspect-ratio: 1/1;
@@ -232,7 +221,7 @@ main{
         > button::after{
             content: '';
             position: absolute;
-            background: url('./images/carrinho.svg') no-repeat;
+            background: url('../images/carrinho.svg') no-repeat;
             background-size: contain;
             width: 20px;
             aspect-ratio: 1/1;
@@ -290,6 +279,7 @@ main{
                 font-size: 2.5rem;
                 line-height: 2.6rem;
                 font-weight: 600;
+                padding-left: 20px;
                 margin: 0;
                 top: -90px;
             }
@@ -331,7 +321,7 @@ main{
         > button::after{
             content: '';
             position: absolute;
-            background: url('./images/carrinho.svg') no-repeat;
+            background: url('../images/carrinho.svg') no-repeat;
             background-size: contain;
             width: 20px;
             aspect-ratio: 1/1;
@@ -367,10 +357,142 @@ main{
         > .column-row-one{
             display: flex;
             height: 80%;
+            width: 80%;
+            justify-content: center;
+            align-items: center;
+
+            > img{
+                width: 300px;
+            }
+            > .row-content{
+                color: #000000;
+
+                > p{
+                    font-size: 2.2rem;
+                    font-weight: 700;
+                }
+                > .column-price{
+                    margin-top: 55px;
+                    display: flex;
+                    justify-content: flex-start;
+        
+                    > p{
+                        font-size: 1.4rem;
+                        margin: 0;
+                        padding-top: 7px;
+                        padding-right: 5px;
+                    }
+                    > b{
+                        font-size: 3rem;
+                    }
+                    > p:last-child{
+                        align-self: flex-end;
+                    }
+                }
+                > button{
+                    position: relative;
+                    cursor: pointer;
+                    margin-top: 37px;
+                    background-color: #57CC99;
+                    padding: 0px 39px;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    transition: all 0.2s, color 0.1s;
+                    overflow: hidden;
+        
+                    > p{
+                        color: #FFFFFF;
+                        margin: 10px 0px;
+                        transition: all 0.2s;
+                    }
+                }
+                > button::after{
+                    content: '';
+                    position: absolute;
+                    background: url('../images/carrinho.svg') no-repeat;
+                    background-size: contain;
+                    width: 20px;
+                    aspect-ratio: 1/1;
+                    top: 50%;
+                    right: 0;
+                    transform: translate(100%, -50%);
+                    transition: all 0.2s ease;
+                }
+                > button:hover{
+                    background: transparent;
+                    outline: 1px solid #57CC99;
+        
+                    > p{
+                        color: #000000;
+                        transform: translateX(-10px);
+                    }
+                }
+                > button:hover::after{
+                    transform: translate(-70%, -50%);
+                    filter: invert(100%);
+                }
+            }
         }
         > .column-row-two{
+            position: relative;
             height: 20%;
             background-color: #C1121F;
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+
+            > p{
+                margin: 0;
+                font-size: 8rem;
+                font-weight: 900;
+                position: absolute;
+                top: -30%;
+                transition: all 0.4s;
+            }
+            > div{
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                
+
+                > p{
+                    position: relative;
+                    z-index: 2;
+                    padding: 10px;
+                    background-color: #0000004f;
+                    border-radius: 8px;
+                    backdrop-filter: blur(4px);
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    transition: all 0.4s;
+                }
+            }
+        }
+        > .column-row-two:hover{
+
+            > p{
+                transform: rotate(-3deg);
+                filter: blur(2px);
+                top: -60%;
+                font-size: 10rem;
+                white-space: nowrap;
+            }
+            > div{
+                > p{
+                    font-size: 1.8rem;
+                    background-color: #00000063;
+                    backdrop-filter: blur(8px);
+                    padding: 12px;
+                }
+                > p:first-child{
+                    transform: rotate(-2deg) translateY(-10px);
+                }
+                > p:last-child{
+                    transform: rotate(3deg) translate(-20px, 10px);
+                }
+            }
         }
     }
 
@@ -386,6 +508,69 @@ main{
             width: 400px;
             height: 200px;
             object-fit: cover;
+        }
+        > p{
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        > .column-price{
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-start;
+
+            > p{
+                font-size: 1.4rem;
+                margin: 0;
+                padding-top: 6px;
+                padding-right: 5px;
+            }
+            > b{
+                font-size: 3rem;
+            }
+        }
+        > button{
+            position: relative;
+            cursor: pointer;
+            margin-top: 37px;
+            background-color: #FFFFFF;
+            padding: 0px 39px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s, color 0.1s;
+            overflow: hidden;
+
+            > p{
+                color: #BB3E03;
+                margin: 10px 0px;
+                transition: all 0.2s;
+            }
+        }
+        > button::after{
+            content: '';
+            position: absolute;
+            background: url('../images/carrinho.svg') no-repeat;
+            background-size: contain;
+            width: 20px;
+            aspect-ratio: 1/1;
+            top: 50%;
+            right: 0;
+            transform: translate(100%, -50%);
+            transition: all 0.2s ease;
+        }
+        > button:hover{
+            background: transparent;
+            outline: 1px solid #FFFFFF;
+
+            > p{
+                color: #FFFFFF;
+                transform: translateX(-10px);
+            }
+        }
+        > button:hover::after{
+            transform: translate(-70%, -50%);
         }
     }
 }
