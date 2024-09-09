@@ -1,12 +1,11 @@
+// Validação do login e cadastro
 document.addEventListener('DOMContentLoaded', function() {
-  ('DOM completamente carregado e analisado');
 
-  // Validação do login e cadastro
   const signupForm = document.getElementById('signup-form');
   const loginForm = document.getElementById('login-form');
 
+  //Cadastro
   if (signupForm) {
-      ('Signup form encontrado');
       signupForm.addEventListener('submit', function(e) {
           e.preventDefault();
 
@@ -14,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
           const email = document.getElementById('email').value.trim();
           const password = document.getElementById('password').value;
 
+          //Adicionando os dados no LocalStorage do navegador, só para
+          //simular uma conexão com um banco de dados
           if (localStorage.getItem(email)) {
               alert('Usuário já registrado!');
           } else {
@@ -22,17 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
                   email: email,
                   password: password
               };
-              ('Armazenando usuário:', userData);
               localStorage.setItem(email, JSON.stringify(userData));
               window.location.href = 'cart.html';
           }
       });
-  } else {
-      ('Signup form não encontrado');
   }
 
+  //Login
   if (loginForm) {
-      ('Login form encontrado');
       loginForm.addEventListener('submit', function(e) {
           e.preventDefault();
 
@@ -41,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
           const storedUserData = localStorage.getItem(loginEmail);
 
+          // Validando para saber se o email existe a senha é a mesma
           if (storedUserData) {
               const userData = JSON.parse(storedUserData);
 
@@ -55,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   } 
 
-  // Validação da senha
+  // Validação da senha (se possui todos os parâmetros necessários)
   const passwordInput = document.getElementById('password');
 
   if (passwordInput) {
@@ -63,6 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
           const password = passwordInput.value;
           const missingTerms = [];
 
+          //Quando falta um dos termos, a mensagem (title) do HTML é
+          //atualizada dinamicamente enquanto o usuário digita.
           if (!/[a-z]/.test(password)) {
               missingTerms.push("letras minúsculas");
           }
@@ -76,6 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
               missingTerms.push("caracteres especiais (@$!%*?&)");
           }
 
+          //Arrumando a sintaxe para o último elemento possuir um ponto
+          //final, o penultimo um "e" e os outros uma vírgula
           let message = "A senha deve conter de 6 a 10 caracteres, incluindo ";
           if (missingTerms.length === 1) {
               message += missingTerms[0] + ".";
@@ -88,7 +91,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
           passwordInput.title = message;
       });
-  } else {
-      ('Password input não encontrado');
-  }
+    }
 });

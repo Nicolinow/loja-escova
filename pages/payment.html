@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento</title>
+    <link rel="stylesheet" href="../styles/paymentStyle.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+</head>
+<body>
+
+    <header>
+        <h2><a href="index.html">escovas.com</a></h2>
+    </header>
+    
+    <main>
+        <div>
+            <h3>Pagamento</h3>
+            <div>
+                <h4>Valor:</h4>
+                <p id="total-value">R$</p>
+            </div>
+        </div>
+        <section>
+            <div>
+                <div>
+                    <h4>Escolha a forma de pagamento</h4>
+                </div>
+                <div>
+                    <ul>
+                        <li><input id="radio1" type="radio" name="iframe-link" value="credito"><a href="iframe/credito.html" target="iframe"><label for="radio1">Cartão de Débito</label></a></li>
+                        <li><input id="radio2" type="radio" name="iframe-link" value="debito"><a href="iframe/debito.html" target="iframe"><label for="radio2">Cartão de Crédito</label></a></li>
+                        <li><input id="radio3" type="radio" name="iframe-link" value="boleto"><a href="iframe/boleto.html" target="iframe"><label for="radio3">Boleto</label></a></li>
+                        <li><input id="radio4" type="radio" name="iframe-link" value="pix"><a href="iframe/pix.html" target="iframe"><label for="radio4">Pix</a></label></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="iframe">
+                <iframe name="iframe" src="" frameborder="0"></iframe>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -149,9 +149,11 @@ main{
 
     > a {
         display: flex;
+        width: 230px;
         margin-right: 120px;
         margin-bottom: 20px;
         align-items: center;
+        justify-content: flex-start;
         gap: 10px;
     
         > h3{
@@ -159,16 +161,20 @@ main{
             font-weight: 500;
             color: #C1121F;
             padding-bottom: 5px;
+            transition: letter-spacing 0.4s;
         }
         > span{
             background: url('../images/Arrow.svg') no-repeat;
             background-size: contain;
             width: 70px;
             aspect-ratio: 1/1;
-            transition: all 0.3s;
+            transition: all 0.3s 0.2s;
         }
     }
     > a:hover{
+        > h3 {
+            letter-spacing: 2.5px;
+        }
         > span{
             transform: translateX(10px);
         }

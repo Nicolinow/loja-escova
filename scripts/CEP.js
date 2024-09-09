@@ -1,5 +1,8 @@
+//Serve para não retornar uma mensagem de erro no total antes 
+//do frete ser calculado
 let shippingCost = 0;
 
+//Lógica dos botões de adicionar e remover unidades de um item
 document.addEventListener('DOMContentLoaded', function() {
     const quantityControls = document.querySelectorAll('.quantity-control');
 
@@ -28,10 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+//Formatar o valor total de . para ,
 function formatCurrency(value) {
     return `R$${value.toFixed(2).replace('.', ',')}`;
 }
 
+//Simulador de frente baseado em randomização e um pouco de lógica
 function calcularValorFrete(cepDestino) {
     const cepNumerico = cepDestino.replace(/\D/g, '');
     const cepInicio = parseInt(cepNumerico.substring(0, 2));
@@ -52,10 +57,12 @@ function calcularValorFrete(cepDestino) {
     return valorBaseFrete + variacao + centavos;
 }
 
+//Formata os números do valor que estavam em . para ,
 function formatarValorFrete(valor) {
     return valor.toFixed(2).replace('.', ',');
 }
 
+//Pega o resultado do simulador de frete e aplica aqui e na tela
 function simularFrete() {
     const cep = document.getElementById('cep').value;
     shippingCost = calcularValorFrete(cep);
@@ -66,6 +73,7 @@ function simularFrete() {
     updateTotal();
 }
 
+//Calcular o valor total junto com o subtotal e frete
 function updateTotal() {
 
     const subtotalElem = document.querySelector('.subtotal-content');
@@ -77,7 +85,7 @@ function updateTotal() {
     animateValueChange(totalElem, formatCurrency(total));
 }
 
-
+//Animação na troca de valores após calcular o frete
 function animateValueChange(element, newValue) {
 
     element.classList.remove('show');
@@ -92,6 +100,7 @@ function animateValueChange(element, newValue) {
     }, 400); 
 }
 
+//Formatar o CEP com o " - "
 function formatarCEP() {
     const cepInput = document.getElementById('cep');
     let cep = cepInput.value.replace(/\D/g, ''); 
@@ -103,6 +112,7 @@ function formatarCEP() {
     validarCEP(); 
 }
 
+//Validar para saber se o CEP tem o número certo de dígitos
 function validarCEP() {
     const cep = document.getElementById('cep').value;
     const botaoCalcular = document.getElementById('calcularFrete');
@@ -114,6 +124,7 @@ function validarCEP() {
     }
 }
 
+//Mostrar o resultado do valor do frete/total
 function mostrar(mensagem) {
     const resultadoElem = document.getElementById('resultado');
     const totalElem = document.getElementById('total');
