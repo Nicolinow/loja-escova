@@ -80,18 +80,19 @@ section{
             cursor: pointer;
             font-weight: 400;
             font-size: 1.1rem;
+            margin: 2px 0;
             width: fit-content;
-            padding: 5px;   
-            padding-right: 15px;         
+            padding: 7px;         
             outline: 1px solid transparent;
-            transition: all 0.3s 0.2s;
+            transition: all 0.3s 0.2s, font-weight 0.2s;
 
             a {
                 transition: all 0.3s 0.2s;
             }
         }
-        > li:has(input:checked){
-            transform: translateX(15px);
+        > li.active{
+            transform: translateX(25px) !important;
+            margin: 5px 0;
             background-color: #FFFFFF;
             outline: 1px solid #C1121F;
             border-radius: 5px;
@@ -99,7 +100,6 @@ section{
         }
         > li:hover{
             transform: translateX(15px);
-            font-weight: 500;
             border-radius: 5px;
             background-color: #FFFFFF;
             transition: all 0.3s;
@@ -108,17 +108,6 @@ section{
                 color: #C1121F;
                 transition: all 0.3s;
             }
-
-        }
-        > li:first-child:hover{
-            margin-bottom: 5px;
-        }
-        > li:nth-child(3):hover,
-        > li:nth-child(2):hover{
-            margin: 5px 0;
-        }
-        > li:last-child:hover{
-            margin-top: 5px;
         }
     }
     .iframe{

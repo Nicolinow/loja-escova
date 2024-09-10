@@ -44,6 +44,7 @@ main{
         height: 420px;
         max-height: 420px;
         overflow-y: scroll;
+        overflow-x: hidden;
         transition: all 0.5s;
         
         div{
@@ -119,13 +120,13 @@ main{
         align-items: flex-end;
 
         > div{
-            width: 200px;
+            width: 220px;
             display: flex;
             align-items: center;
             border-bottom: 1px solid #cecece;
 
             > h4{
-                text-align: end;
+                text-align: flex-start;
                 font-weight: 400;
                 width: 50%;
                 margin: 10px;
@@ -237,6 +238,7 @@ main{
     outline: 1px solid #cecece;
     background: transparent;
     transform: translateY(3px);
+    border-radius: 5px;
     transition: 0.4s, background-color 0.2s, color 0.2s, border-radius 0.2s;
     cursor: pointer;
 }
@@ -244,7 +246,6 @@ main{
 .increase:hover{
     background-color: #262626;
     color: #FFFFFF;
-    border-radius: 5px;
 }
 .Qtd-product:has(p:hover) p:hover .decrease,
 .Qtd-product:has(p:hover) p:hover .increase{

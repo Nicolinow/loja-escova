@@ -28,10 +28,10 @@
                 </div>
                 <div>
                     <ul>
-                        <li><input id="radio1" type="radio" name="iframe-link" value="credito"><a href="iframe/credito.html" target="iframe"><label for="radio1">Cartão de Débito</label></a></li>
-                        <li><input id="radio2" type="radio" name="iframe-link" value="debito"><a href="iframe/debito.html" target="iframe"><label for="radio2">Cartão de Crédito</label></a></li>
-                        <li><input id="radio3" type="radio" name="iframe-link" value="boleto"><a href="iframe/boleto.html" target="iframe"><label for="radio3">Boleto</label></a></li>
-                        <li><input id="radio4" type="radio" name="iframe-link" value="pix"><a href="iframe/pix.html" target="iframe"><label for="radio4">Pix</a></label></li>
+                        <li><a href="/pages/iframe/credito.html" target="iframe">Cartão de Débito</a></li>
+                        <li><a href="/pages/iframe/debito.html" target="iframe">Cartão de Crédito</a></li>
+                        <li><a href="/pages/iframe/boleto.html" target="iframe">Boleto</a></li>
+                        <li><a href="/pages/iframe/pix.html" target="iframe">Pix</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,5 +40,17 @@
             </div>
         </section>
     </main>
+
+    <script>
+         document.querySelectorAll('li').forEach(li => {
+            li.addEventListener('click', function() {
+                document.querySelectorAll('li').forEach(item => item.classList.remove('active'));
+                
+                this.classList.add('active');
+                
+                const link = this.querySelector('a');
+            });
+        });
+    </script>
 </body>
 </html>

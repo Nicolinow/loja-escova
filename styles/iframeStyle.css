@@ -1,0 +1,20 @@
+main{
+    color: #262626;
+}
+main.boleto{
+
+    h3{
+        color: #C1121F;
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        
+        b{
+
+        }
+    }
+}
