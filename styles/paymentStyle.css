@@ -119,9 +119,6 @@ section{
         }
     }
 }
-iframe{
-    outline: 1px solid red;
-}
 label{
     cursor: pointer;
 }

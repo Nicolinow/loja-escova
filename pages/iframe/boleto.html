@@ -14,9 +14,29 @@
         <div>
             <b>Número do Boleto</b>
             <p id="boleto-id"></p>
+            <div class="button">
+                <button class="copy" onmousedown="random()">Copiar</button>
+                <span></span>
+            </div>
         </div>
     </main>
 
     <script src="/scripts/payment.js"></script>
+    <script>
+        const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#33FFF3', '#FFB533'];
+    
+        function getRandomColor() {
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            return colors[randomIndex];
+        }
+
+        function random() {
+            const textElement = document.querySelector('.copy');
+
+            const randomColor = getRandomColor();
+            textElement.style.color = randomColor;
+            
+        }
+    </script>
 </body>
 </html>
