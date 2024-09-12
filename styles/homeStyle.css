@@ -361,11 +361,7 @@ main{
             justify-content: center;
             align-items: center;
 
-<<<<<<< HEAD
-            > img{
-=======
             img{
->>>>>>> 307b9d7943f1064898861879f97fc5c324e9fc9a
                 width: 300px;
             }
             > .row-content{

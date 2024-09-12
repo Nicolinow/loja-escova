@@ -1,27 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-<<<<<<< HEAD
-=======
 body{
     margin: 0;
     font-family: 'Inter', sans-serif, system-ui;
     color: #FFFFFF;
 }
->>>>>>> 307b9d7943f1064898861879f97fc5c324e9fc9a
 button{
     appearance: none;
     border: 0;
     padding: 0;
     outline: none;
 }
-<<<<<<< HEAD
-body{
-    margin: 0;
-    font-family: 'Inter', sans-serif, system-ui;
-    color: #FFFFFF;
-}
-=======
->>>>>>> 307b9d7943f1064898861879f97fc5c324e9fc9a
 input{
     appearance: none;
     border: 0;
