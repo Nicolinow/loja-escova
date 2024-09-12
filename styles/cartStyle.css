@@ -44,6 +44,10 @@ main{
         height: 420px;
         max-height: 420px;
         overflow-y: scroll;
+<<<<<<< HEAD
+=======
+        overflow-x: hidden;
+>>>>>>> 307b9d7943f1064898861879f97fc5c324e9fc9a
         transition: all 0.5s;
         
         div{
@@ -119,13 +123,21 @@ main{
         align-items: flex-end;
 
         > div{
+<<<<<<< HEAD
             width: 200px;
+=======
+            width: 220px;
+>>>>>>> 307b9d7943f1064898861879f97fc5c324e9fc9a
             display: flex;
             align-items: center;
             border-bottom: 1px solid #cecece;
 
             > h4{
+<<<<<<< HEAD
                 text-align: end;
+=======
+                text-align: flex-start;
+>>>>>>> 307b9d7943f1064898861879f97fc5c324e9fc9a
                 font-weight: 400;
                 width: 50%;
                 margin: 10px;
@@ -237,6 +249,10 @@ main{
     outline: 1px solid #cecece;
     background: transparent;
     transform: translateY(3px);
+<<<<<<< HEAD
+=======
+    border-radius: 5px;
+>>>>>>> 307b9d7943f1064898861879f97fc5c324e9fc9a
     transition: 0.4s, background-color 0.2s, color 0.2s, border-radius 0.2s;
     cursor: pointer;
 }
@@ -244,7 +260,10 @@ main{
 .increase:hover{
     background-color: #262626;
     color: #FFFFFF;
+<<<<<<< HEAD
     border-radius: 5px;
+=======
+>>>>>>> 307b9d7943f1064898861879f97fc5c324e9fc9a
 }
 .Qtd-product:has(p:hover) p:hover .decrease,
 .Qtd-product:has(p:hover) p:hover .increase{

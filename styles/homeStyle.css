@@ -87,7 +87,7 @@ main{
                 }
             }
             > button{
-            
+                z-index: 2;
                 position: relative;
                 cursor: pointer;
                 margin-top: 25px;
@@ -139,13 +139,13 @@ main{
             align-items: flex-end;
             justify-content: flex-end;
 
-            > img{
+            img{
                 top: -50px;
                 left: -400px;
                 position: absolute;
+                z-index: 0;
                 width: 550px;
                 object-fit: contain;
-                pointer-events: none;
             }
             > p{
                 width: 100%;
@@ -178,7 +178,7 @@ main{
             margin-bottom: 15px;
         }
 
-        > img{
+        img{
             width: 270px;
         }
         > .column-price{
@@ -262,7 +262,7 @@ main{
                 color: #FFD60A;
                 transform: translateX(-50%);
             }
-            > img{
+            img{
                 width: 450px;
             }
         }
@@ -361,7 +361,11 @@ main{
             justify-content: center;
             align-items: center;
 
+<<<<<<< HEAD
             > img{
+=======
+            img{
+>>>>>>> 307b9d7943f1064898861879f97fc5c324e9fc9a
                 width: 300px;
             }
             > .row-content{
@@ -504,7 +508,7 @@ main{
         width: 40%;
         background-color: #BB3E03;
 
-        > img{
+        img{
             width: 400px;
             height: 200px;
             object-fit: cover;
@@ -573,4 +577,16 @@ main{
             transform: translate(-70%, -50%);
         }
     }
+}
+
+.image-container{
+    overflow: hidden;
+    border-radius: 10px;
+}
+.zoom-container {
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+.image-container:hover .zoom-container {
+    transform: scale(1.8);
 }
