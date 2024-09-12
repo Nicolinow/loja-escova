@@ -33,7 +33,9 @@
                         <button id="Add-Carrinho-1"><p>Adicionar ao Carrinho</p></button>
                     </div>
                     <div class="column-two">
-                        <img src="../images/escova_bambu.svg" alt="Escova de dente feita com bambu e com cerdas macias.">
+                        <div class="image-container">
+                            <img class="zoom-container" src="../images/escova_bambu.svg" alt="Escova de dente feita com bambu e com cerdas macias.">
+                        </div>
                         <p>Bambu <br>e cerdas macias</p>
                     </div>
                 </div>
@@ -42,7 +44,9 @@
 
             <div class="row-two">
                 <div class="column-one">
-                    <img src="../images/escova_individual.svg" alt="Escova de dente individuais.">
+                    <div class="image-container">
+                        <img class="zoom-container" src="../images/escova_individual.svg" alt="Escova de dente individuais.">
+                    </div>
                     <p>Escova Individual</p>
                     <div class="column-price">
                         <p>R$</p>
@@ -53,7 +57,9 @@
                 </div>
                 <div class="column-two">
                     <div class="column-row-one">
-                        <img src="../images/escova_eletrica.svg" alt="Escova de dente elétrica.">
+                        <div class="image-container">
+                            <img class="zoom-container" src="../images/escova_eletrica.svg" alt="Escova de dente elétrica.">
+                        </div>
                         <p>+Bateria<br>+Velocidade</p>
                     </div>
                     <div class="column-row-two">
@@ -72,7 +78,9 @@
                 <div class="column-one">
                 <div class="column-one"></div>
                     <div class="column-row-one">
-                        <img src="../images/escova_infantil.svg" alt="Escova de dentes infantis.">
+                        <div class="image-container">
+                            <img class="zoom-container" src="../images/escova_infantil.svg" alt="Escova de dentes infantis.">
+                        </div>
                         <div class="row-content">
                             <p>Escovas <br>Infantis</p>
                             <div class="column-price">
@@ -91,8 +99,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="column-two">
-                    <img src="../images/creme_dental.svg" alt="">
+                <div class="column-two ">
+                    <div class="image-container">
+                        <img class="zoom-container" src="../images/creme_dental.svg" alt="">
+                    </div>
                     <p>Creme dental <br>TANDY</p>
                     <div class="column-price">
                         <p>R$</p>
@@ -106,5 +116,27 @@
 
     </main>
 
+    <script>
+        const images = document.querySelectorAll('.zoom-container');
+
+        images.forEach(image => {
+            image.addEventListener('mousemove', (e) => {
+                const rect = e.target.getBoundingClientRect();
+                const x = e.clientX - rect.left; 
+                const y = e.clientY - rect.top;
+
+                const xPercent = (x / rect.width) * 100; 
+                const yPercent = (y / rect.height) * 100;
+
+                image.animate([
+                    { transformOrigin: `${xPercent}% ${yPercent}%` }
+                ], {
+                    duration: 1000,
+                    fill: 'forwards'
+                });
+            });
+        });
+
+    </script>
 </body>
 </html>
