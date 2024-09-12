@@ -28,10 +28,30 @@
                 </div>
                 <div>
                     <ul>
-                        <li><a href="/pages/iframe/credito.html" target="iframe">Cartão de Débito</a></li>
-                        <li><a href="/pages/iframe/debito.html" target="iframe">Cartão de Crédito</a></li>
-                        <li><a href="/pages/iframe/boleto.html" target="iframe">Boleto</a></li>
-                        <li><a href="/pages/iframe/pix.html" target="iframe">Pix</a></li>
+                        <li>
+                            <label>
+                                <input type="radio" name="payment" value="debito" onclick="changePayment('debito');">
+                                Cartão de Débito
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="payment" value="credito" onclick="changePayment('credito');">
+                                Cartão de Crédito
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="payment" value="boleto" onclick="changePayment('boleto');">
+                                Boleto
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="payment" value="pix" onclick="changePayment('pix');">
+                                Pix
+                            </label>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -39,18 +59,30 @@
                 <iframe name="iframe" src="" frameborder="0"></iframe>
             </div>
         </section>
+
+        <script>
+            function changePayment(paymentMethod) {
+                var iframe = document.querySelector('iframe');
+                switch (paymentMethod) {
+                    case 'debito':
+                        iframe.src = 'iframe/debito.html';
+                        break;
+                    case 'credito':
+                        iframe.src = 'iframe/credito.html';
+                        break;
+                    case 'boleto':
+                        iframe.src = 'iframe/boleto.html';
+                        break;
+                    case 'pix':
+                        iframe.src = 'iframe/pix.html';
+                        break;
+                    default:
+                        iframe.src = '';
+                        break;
+                }
+            }
+        </script>
     </main>
 
-    <script>
-         document.querySelectorAll('li').forEach(li => {
-            li.addEventListener('click', function() {
-                document.querySelectorAll('li').forEach(item => item.classList.remove('active'));
-                
-                this.classList.add('active');
-                
-                const link = this.querySelector('a');
-            });
-        });
-    </script>
 </body>
 </html>

@@ -10,4 +10,8 @@ function gerarNumeroBoleto() {
 document.addEventListener('DOMContentLoaded', () => {
     const boletoIdElement = document.getElementById('boleto-id');
     boletoIdElement.textContent = gerarNumeroBoleto();
+
+    document.querySelector('.copy.boleto').addEventListener('click', () => {
+        navigator.clipboard.writeText(boletoIdElement.textContent);
+    });
 });

@@ -177,9 +177,16 @@ main{
             margin-top: 20px;
             margin-bottom: 15px;
         }
-
+        .image-container{
+            width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         img{
-            width: 270px;
+            width: 300px;
+            height: 370px;
+            object-fit: contain;
         }
         > .column-price{
             display: flex;
@@ -282,6 +289,7 @@ main{
                 padding-left: 20px;
                 margin: 0;
                 top: -90px;
+                pointer-events: none;
             }
 
         }
