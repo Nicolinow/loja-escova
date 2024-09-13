@@ -21,7 +21,7 @@
                 <p id="total-value">R$</p>
             </div>
         </div>
-        <section>
+        <section class="row-one">
             <div>
                 <div>
                     <h4>Escolha a forma de pagamento</h4>
@@ -59,6 +59,22 @@
                 <iframe name="iframe" src="" frameborder="0"></iframe>
             </div>
         </section>
+        <section class="row-two">
+            <a href="cart.html">
+                <h3>Seu carrinho</h3>
+                <span></span>
+            </a>
+            <div>
+                <button id="complete">Finalizar compra</button>
+            </div>
+        </section>
+        <div class="complete-payment">
+            <div>
+                <h4>Compra finalizada com sucesso!</h4>
+                <b>Seu pedido chegará em breve.</b>
+                <p>Agora iremos te retornar para a página principal, aguarde alguns segundos, ou faça isso manualmente <a href="index.html">aqui</a></p>
+            </div>
+        </div>
 
         <script>
             function changePayment(paymentMethod) {
@@ -81,6 +97,12 @@
                         break;
                 }
             }
+        </script>
+    
+        <script>
+            document.getElementById('complete').addEventListener('click', function() {
+                document.querySelector('.complete-payment').classList.add('active');
+            });
         </script>
     </main>
 

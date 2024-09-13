@@ -15,6 +15,10 @@ input{
     appearance: none;
     border: 0;
 }
+
+label{
+    cursor: pointer;
+}
 a{
     text-decoration: none;
     color: #262626;

@@ -17,6 +17,10 @@ main.boleto{
         b{
             font-size: 1.1rem;
         }
+        > p{
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
         > div{
             position: relative;
             width: 90px;
