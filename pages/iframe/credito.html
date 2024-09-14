@@ -9,5 +9,203 @@
 </head>
 <body>
     
+    <main class="credito">
+        <h3>Pagamento com Cartão de Crédito</h3>
+        <form id="credit-card-form">
+            <section>
+                <div class="cardholder-input">
+                    <input id="cardholder-name" type="text" autocomplete="off" placeholder="" required pattern="^[A-Za-z]{2,} [A-Za-z]{2,}$" title="O nome completo deve conter pelo menos um nome e um sobrenome, ambos com no mínimo 2 caracteres.">
+                    <label for="cardholder-name">Titular do Cartão</label>
+                </div>
+                <div class="card-number-input">
+                    <input id="card-number" type="text" minlength="19" maxlength="19" autocomplete="off" placeholder="" required title="O número do cartão deve conter 16 dígitos">
+                    <label for="card-number">Número do Cartão</label>
+                        <span id="card-type"></span>
+                </div>
+                <div class="security-code-input">
+                    <input id="security-code" type="text" minlength="3" maxlength="4" autocomplete="off" placeholder="" required pattern="\d{3,4}" inputmode="numeric" title="O código de segurança deve conter 3 ou 4 dígitos">
+                    <label for="security-code">Código de Segurança</label>
+                </div>
+                <div class="expiry-date-input">
+                    <input id="expiry-date" type="text" maxlength="7" autocomplete="off" placeholder="" required pattern="(0[1-9]|1[0-2])\/\d{4}" title="A data de validade deve estar no formato MM/AAAA">
+                    <label for="expiry-date">Data de Validade</label>
+                </div>
+                <div class="installments-input">
+                    <select id="installments" required>
+                        <option value="2">2x</option>
+                        <option value="3">3x</option>
+                        <option value="4">4x</option>
+                        <option value="5">5x</option>
+                        <option value="6">6x</option>
+                        <option value="7">7x</option>
+                        <option value="8">8x</option>
+                        <option value="9">9x</option>
+                        <option value="10">10x</option>
+                        <option value="11">11x</option>
+                        <option value="12">12x</option>
+                    </select>
+                    <label for="installments">Parcelas</label>
+                </div>
+                <button type="submit">Finalizar compra</button>
+            </section>
+        </form>
+    </main>
+
+    <script src="/scripts/buttonBackground.js"></script>
+    <script>
+
+        function completePayment() {
+            window.parent.postMessage('completePayment', '*');
+        }
+
+        document.getElementById('credit-card-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const cardholderName = document.getElementById('cardholder-name').value;
+            const cardNumber = document.getElementById('card-number').value.replace(/\s+/g, '');
+            const securityCode = document.getElementById('security-code').value;
+            const expiryDate = document.getElementById('expiry-date').value;
+            const installments = document.getElementById('installments').value;
+
+            const [month, year] = expiryDate.split('/').map(Number);
+            const currentDate = new Date();
+            const currentMonth = currentDate.getMonth() + 1; 
+            const currentYear = currentDate.getFullYear();
+
+            if (year < currentYear || (year === currentYear && month < currentMonth)) {
+                alert('A data de validade deve ser maior que a data atual');
+                return;
+            }
+
+            if (!validateCVV(cardNumber, securityCode)) {
+                alert('Código de segurança inválido');
+                return;
+            }
+
+            if (!validateCard(cardNumber)) {
+                alert('Número de cartão inválido');
+                return;
+            }
+
+            if (!validateExpiryDate(cardNumber, month, year)) {
+                alert('Data de validade inválida para o tipo de cartão');
+                return;
+            }
+
+            completePayment();
+        });
+
+        document.getElementById('expiry-date').addEventListener('input', function(event) {
+            let input = event.target.value.replace(/\D/g, ''); // Remove non-digit characters
+            if (input.length > 2) {
+                input = input.slice(0, 2) + '/' + input.slice(2);
+            }
+            event.target.value = input;
+        });
+
+        
+        document.getElementById('card-number').addEventListener('input', function(event) {
+            let input = event.target.value.replace(/\D/g, ''); // Remove non-digit characters
+            input = input.replace(/(.{4})/g, '$1 ').trim(); // Add space every 4 digits
+            event.target.value = input;
+
+            const cardTypeElement = document.getElementById('card-type');
+            const cardType = getCardType(input.replace(/\s+/g, ''));
+            cardTypeElement.textContent = cardType ? `Cartão: ${cardType}` : '';
+
+            // Apply smooth appearance with opacity and transform
+            cardTypeElement.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            cardTypeElement.style.opacity = cardType ? '1' : '0';
+            cardTypeElement.style.transform = cardType ? 'translatex(-15px)' : 'translatex(5px)';
+        });
+
+        // Initial styles for smooth appearance
+        document.getElementById('card-type').style.opacity = '0';
+        document.getElementById('card-type').style.transform = 'translatex(5px)';
+
+        var acceptedCreditCards = {
+            visa: /^4[0-9]{12}(?:[0-9]{3})?$/,
+            mastercard: /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/,
+            amex: /^3[47][0-9]{13}$/,
+            discover: /^65[4-9][0-9]{13}|64[4-9][0-9]{13}|6011[0-9]{12}|(622(?:12[6-9]|1[3-9][0-9]|[2-8][0-9][0-9]|9[01][0-9]|92[0-5])[0-9]{10})$/,
+            diners_club: /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/,
+            jcb: /^(?:2131|1800|35[0-9]{3})[0-9]{11}$/
+        };
+
+        function checkSupported(value) {
+            var value = value.replace(/\D/g, '');
+            var accepted = false;
+            
+            Object.keys(acceptedCreditCards).forEach(function(key) {
+                var regex = acceptedCreditCards[key];
+                if (regex.test(value)) {
+                    accepted = true;
+                }
+             });
+        
+        return accepted;
+        }
+
+        function validateCard(value) {
+            var value = value.replace(/\D/g, '');
+            var sum = 0;
+            var shouldDouble = false;
+            for (var i = value.length - 1; i >= 0; i--) {
+                var digit = parseInt(value.charAt(i));
+
+                if (shouldDouble) {
+                if ((digit *= 2) > 9) digit -= 9;
+                }
+
+                sum += digit;
+                shouldDouble = !shouldDouble;
+            }
+            
+            var valid = (sum % 10) == 0;
+            var accepted = false;
+            
+            Object.keys(acceptedCreditCards).forEach(function(key) {
+                var regex = acceptedCreditCards[key];
+                if (regex.test(value)) {
+                accepted = true;
+                }
+            });
+            
+            return valid && accepted;
+        }
+
+        function validateCVV(creditCard, cvv) {
+            var creditCard = creditCard.replace(/\D/g, '');
+            var cvv = cvv.replace(/\D/g, '');
+            if ((acceptedCreditCards.amex).test(creditCard) || (acceptedCreditCards.discover).test(creditCard)) {
+                if((/^\d{4}$/).test(cvv)) {
+                    return true;
+                }
+            } else if ((/^\d{3}$/).test(cvv)) {
+                return true;
+            }
+
+            return false;
+        }
+
+        function validateExpiryDate(cardNumber, month, year) {
+            const cardType = getCardType(cardNumber);
+            // General validation for all cards
+            const currentDate = new Date();
+            const currentMonth = currentDate.getMonth() + 1;
+            const currentYear = currentDate.getFullYear();
+            return year > currentYear || (year === currentYear && month >= currentMonth);
+            }
+
+            function getCardType(number) {
+            for (const [key, regex] of Object.entries(acceptedCreditCards)) {
+                if (regex.test(number)) {
+                return key.charAt(0).toUpperCase() + key.slice(1);
+                }
+            }
+        return null;
+        }
+    </script>
+
 </body>
 </html>

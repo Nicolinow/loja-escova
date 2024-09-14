@@ -21,28 +21,23 @@
         </div>
     </main>
 
-    <script src="/scripts/payment.js"></script>
+    <script src="/scripts/buttonBackground.js"></script>
     <script>
-        function changeBackgroundColor() {
-            var button = document.querySelector('.copy');
-                button.classList.add('active');
-                button.innerHTML = 'Copiado';
-            setTimeout(function() {
-                button.classList.remove('active');
-                button.style.backgroundColor = '#eeeeee';
-                button.innerHTML = 'Copiar';
-            }, 300);
-
-            var colors = ['#ffeab0', '#ffc3a7', '#ffa9ce', '#cca8ff', '#a4c9ff'];
-            var currentColor = button.style.backgroundColor;
-            var newColor = colors[Math.floor(Math.random() * colors.length)];
-
-            while (newColor === currentColor) {
-                newColor = colors[Math.floor(Math.random() * colors.length)];
+        function gerarNumeroBoleto() {
+            let numero = '';
+            for (let i = 0; i < 44; i++) {
+                numero += Math.floor(Math.random() * 10);
             }
+        
+        return `${numero.substring(0, 5)}.${numero.substring(5, 10)}.${numero.substring(10, 15)}.${numero.substring(15, 20)}.${numero.substring(20)}`;
+        }   
 
-            button.style.backgroundColor = newColor;
-        }
+        const boletoIdElement = document.getElementById('boleto-id');
+        boletoIdElement.textContent = gerarNumeroBoleto();
+
+        document.querySelector('.copy.boleto').addEventListener('click', () => {
+            navigator.clipboard.writeText(boletoIdElement.textContent);
+        });
     </script>
 </body>
 </html>

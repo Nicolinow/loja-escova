@@ -30,25 +30,25 @@
                     <ul>
                         <li>
                             <label>
-                                <input type="radio" name="payment" value="debito" onclick="changePayment('debito');">
+                                <input type="radio" name="payment" value="debito" onclick="changePayment('debito'); hideCompleteButton();">
                                 Cartão de Débito
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="radio" name="payment" value="credito" onclick="changePayment('credito');">
+                                <input type="radio" name="payment" value="credito" onclick="changePayment('credito'); hideCompleteButton();">
                                 Cartão de Crédito
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="radio" name="payment" value="boleto" onclick="changePayment('boleto');">
+                                <input type="radio" name="payment" value="boleto" onclick="changePayment('boleto'); showCompleteButton();">
                                 Boleto
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="radio" name="payment" value="pix" onclick="changePayment('pix');">
+                                <input type="radio" name="payment" value="pix" onclick="changePayment('pix'); showCompleteButton();">
                                 Pix
                             </label>
                         </li>
@@ -72,7 +72,7 @@
             <div>
                 <h4>Compra finalizada com sucesso!</h4>
                 <b>Seu pedido chegará em breve.</b>
-                <p>Agora iremos te retornar para a página principal, aguarde alguns segundos, ou faça isso manualmente <a href="index.html">aqui</a></p>
+                <p>Agora iremos te retornar para a página principal, aguarde alguns segundos, ou faça isso manualmente <a href="index.html">aqui</a>.</p>
             </div>
         </div>
 
@@ -97,12 +97,33 @@
                         break;
                 }
             }
-        </script>
-    
-        <script>
-            document.getElementById('complete').addEventListener('click', function() {
-                document.querySelector('.complete-payment').classList.add('active');
+
+            document.getElementById('complete').classList.add('hidden')
+
+            function hideCompleteButton() {
+                document.getElementById('complete').classList.add('hidden')
+            }
+            function showCompleteButton() {
+                document.getElementById('complete').classList.remove('hidden')
+            }
+
+            window.addEventListener('message', function(event) {
+                if (event.data === 'completePayment') {
+                    completePayment();
+                }
             });
+            
+            document.getElementById('complete').addEventListener('click', function() {completePayment()})
+
+            function completePayment(){
+                document.querySelector('.complete-payment').classList.add('active');
+                document.body.style.scale = 1.3;
+                document.body.style.overflow = 'hidden';
+                setTimeout(function() {
+                    window.location.href = 'index.html';
+                }, 10000);
+            };
+
         </script>
     </main>
 

@@ -9,5 +9,41 @@
 </head>
 <body>
     
+    <main class="pix">
+        <h3>Pagamento com Pix</h3>
+        <div class="Qrcode">
+            <b>Escaneie o QR Code para pagar com Pix</b>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://optical.toys" alt="QR Code">
+        </div>
+        <div class="copycode">
+            <b>Ou copie o código</b>
+            <p id="pix-id"></p>
+            <div class="button">
+                <button class="copy pix" onclick="changeBackgroundColor()">Copiar</button>
+                <span></span>
+            </div>
+        </div>
+    </main>
+
+    <script src="/scripts/buttonBackground.js"></script>
+    <script>
+        function gerarPixCode() {
+            const pixKey = "123456789"; 
+            const merchantName = "escovas.com";
+            const city = "Rio de Janeiro";
+            const transactionId = "TX123456";
+            const amount = "100.00"; // mudar para o valor real da compra
+            const pixCode = `00020126360014BR.GOV.BCB.PIX0114${pixKey}5204000053039865406${amount}5802BR5913${merchantName}6008${city}62070503${transactionId}6304`;
+            return pixCode;
+        }
+
+        const pixCode = gerarPixCode();
+        document.getElementById("pix-id").textContent = pixCode;
+
+        document.querySelector('.copy.pix').addEventListener('click', () => {
+            navigator.clipboard.writeText(pixCode);
+        });
+    </script>
 </body>
 </html>
+
