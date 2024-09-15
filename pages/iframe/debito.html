@@ -14,20 +14,54 @@
         <form id="credit-card-form">
                 <section>
                 <div class="cardholder-input">
-                    <input disabled id="cardholder-name" placeholder="">
+                    <input 
+                    disabled 
+                    id="cardholder-name" 
+                    placeholder=""
+                    >
                     <label for="cardholder-name">Titular do Cartão</label>
                 </div>
                 <div class="card-number-input">
-                    <input id="card-number" type="text" minlength="19" maxlength="19" autocomplete="off" placeholder="" required title="O número do cartão deve conter 16 dígitos">
+                    <input 
+                    id="card-number" 
+                    type="text" 
+                    minlength="19" 
+                    maxlength="19" 
+                    autocomplete="off" 
+                    placeholder="" 
+                    required 
+                    inputmode="numeric"
+                    title="O número do cartão deve conter 16 dígitos"
+                    >
                     <label for="card-number">Número do Cartão</label>
                         <span id="card-type"></span>
                 </div>
                 <div class="security-code-input">
-                    <input id="security-code" type="text" minlength="3" maxlength="4" autocomplete="off" placeholder="" required pattern="\d{3,4}" inputmode="numeric" title="O código de segurança deve conter 3 ou 4 dígitos">
+                    <input 
+                    id="security-code" 
+                    type="text" 
+                    minlength="3" 
+                    maxlength="4" 
+                    autocomplete="off" 
+                    placeholder="" 
+                    required 
+                    pattern="\d{3,4}" 
+                    inputmode="numeric" 
+                    title="O código de segurança deve conter 3 ou 4 dígitos"
+                    >
                     <label for="security-code">Código de Segurança</label>
                 </div>
                 <div class="expiry-date-input">
-                    <input id="expiry-date" type="text" maxlength="7" autocomplete="off" placeholder="" required pattern="(0[1-9]|1[0-2])\/\d{4}" title="A data de validade deve estar no formato MM/AAAA">
+                    <input 
+                    id="expiry-date" 
+                    type="text" 
+                    maxlength="7"
+                    autocomplete="off" 
+                    placeholder="" 
+                    required 
+                    pattern="(0[1-9]|1[0-2])\/\d{4}" 
+                    title="A data de validade deve estar no formato MM/AAAA"
+                    >
                     <label for="expiry-date">Data de Validade</label>
                 </div>
                 <div class="installments-input">
@@ -46,7 +80,7 @@
                     </select>
                     <label for="installments">Parcelas</label>
                 </div>
-                <button type="submit" onclick="completePayment()">Finalizar compra</button>
+                <button type="submit">Finalizar compra</button>
             </section>
         </form>
     </main>
@@ -54,7 +88,7 @@
     <script src="/scripts/buttonBackground.js"></script>
     <script>
 
-function completePayment() {
+        function completePayment() {
             window.parent.postMessage('completePayment', '*');
         }
 
@@ -84,11 +118,6 @@ function completePayment() {
 
             if (!validateCVV(cardNumber, securityCode)) {
                 alert('Código de segurança inválido');
-                return;
-            }
-
-            if (!validateExpiryDate(cardNumber, month, year)) {
-                alert('Data de validade inválida para o tipo de cartão');
                 return;
             }
 
