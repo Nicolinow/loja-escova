@@ -230,6 +230,7 @@ main.boleto{
     h3{
         color: #C1121F;
         font-weight: 600;
+        margin-top: 0;
         font-size: 1.5rem;
     }
     > div{
@@ -314,6 +315,7 @@ main.pix{
             
     h3{
         color: #C1121F;
+        margin-top: 0;
         font-weight: 600;
         font-size: 1.5rem;
     }
