@@ -200,10 +200,10 @@ main.debito{
 main.debito{
     .cardholder-input{
         opacity: 0.2;
-
+        cursor: not-allowed;
+        
         input{
             cursor: not-allowed;
-            pointer-events: none;
             background-color: #ffdfdf !important;
         }
         label{
