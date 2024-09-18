@@ -13,12 +13,14 @@
         <div class="header-wrapper">
             <h2>
                 <a href="index.html">escovas.com</a></h2>
-            <a href="/pages/signin.html" id="Carrinho"></a>
+            <a href="/pages/signin.html" id="Carrinho">
+                <span id="items-cart"></span>
+            </a>
+
         </div>
     </header>
 
     <main>
-
 
         <section class="row-wrapper">
             <div class="row-one">
@@ -30,7 +32,7 @@
                             <p>R$</p>
                             <b>79,00</b>
                         </div>
-                        <button id="Add-Carrinho-1"><p>Adicionar ao Carrinho</p></button>
+                        <button id="Add-Carrinho-1" class="add-carrinho"><p>Adicionar ao Carrinho</p></button>
                     </div>
                     <div class="column-two">
                         <div class="image-container">
@@ -53,7 +55,7 @@
                         <b>29,90</b>
                         <p>cada</p>
                     </div>
-                    <button id="Add-Carrinho-2"><p>Adicionar ao Carrinho</p></button>
+                    <button id="Add-Carrinho-2" class="add-carrinho"><p>Adicionar ao Carrinho</p></button>
                 </div>
                 <div class="column-two">
                     <div class="column-row-one">
@@ -69,7 +71,7 @@
                         <p>R$</p>
                         <b>154,00</b>
                     </div>
-                    <button id="Add-Carrinho-3"><p>Adicionar ao Carrinho</p></button>
+                    <button id="Add-Carrinho-3" class="add-carrinho"><p>Adicionar ao Carrinho</p></button>
                 </div>
             </div>
 
@@ -88,7 +90,7 @@
                                 <b>17,50</b>
                                 <p>cada</p>
                             </div>
-                            <button id="Add-Carrinho-4"><p>Adicionar ao Carrinho</p></button>
+                            <button id="Add-Carrinho-4" class="add-carrinho"><p>Adicionar ao Carrinho</p></button>
                         </div>
                     </div>
                     <div class="column-row-two">
@@ -108,7 +110,7 @@
                         <p>R$</p>
                         <b>15,00</b>
                     </div>
-                    <button id="Add-Carrinho-5"><p>Adicionar ao Carrinho</p></button>
+                    <button id="Add-Carrinho-5" class="add-carrinho"><p>Adicionar ao Carrinho</p></button>
                 </div>
             </div>
 
@@ -138,5 +140,6 @@
         });
 
     </script>
+    <script src="./scripts/addToCart.js"></script>
 </body>
 </html>

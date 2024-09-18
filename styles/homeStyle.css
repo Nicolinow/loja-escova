@@ -21,8 +21,8 @@ header{
     }
     > a {
         background: url('../images/carrinho.svg') no-repeat;
-        background-size: 35px;
-        width: 35px;
+        background-size: contain;
+        width: 45px;
         aspect-ratio: 1/1;
     }
 }
@@ -581,6 +581,31 @@ main{
             transform: translate(-70%, -50%);
         }
     }
+}
+header span{
+    position: absolute;
+    opacity: 0;
+    width: 25px;
+    aspect-ratio: 1/1;
+    background-color: #000000b7;
+    right: -5px;
+    top: -5px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header span.appear{
+    opacity: 1;
+    transition: all 0.4s;
+}
+#Carrinho{
+    position: relative;
+    color: #FFFFFF;
+    font-size: 13px;
+}
+button p{
+    pointer-events: none;
 }
 
 .image-container{
