@@ -126,7 +126,7 @@
         });
 
         document.getElementById('expiry-date').addEventListener('input', function(event) {
-            let input = event.target.value.replace(/\D/g, ''); // Remove non-digit characters
+            let input = event.target.value.replace(/\D/g, ''); 
             if (input.length > 2) {
                 input = input.slice(0, 2) + '/' + input.slice(2);
             }
@@ -135,21 +135,18 @@
 
         
         document.getElementById('card-number').addEventListener('input', function(event) {
-            let input = event.target.value.replace(/\D/g, ''); // Remove non-digit characters
-            input = input.replace(/(.{4})/g, '$1 ').trim(); // Add space every 4 digits
+            let input = event.target.value.replace(/\D/g, ''); 
+            input = input.replace(/(.{4})/g, '$1 ').trim(); 
             event.target.value = input;
 
             const cardTypeElement = document.getElementById('card-type');
             const cardType = getCardType(input.replace(/\s+/g, ''));
             cardTypeElement.textContent = cardType ? `Cartão: ${cardType}` : '';
-
-            // Apply smooth appearance with opacity and transform
             cardTypeElement.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             cardTypeElement.style.opacity = cardType ? '1' : '0';
             cardTypeElement.style.transform = cardType ? 'translatex(-15px)' : 'translatex(5px)';
         });
 
-        // Initial styles for smooth appearance
         document.getElementById('card-type').style.opacity = '0';
         document.getElementById('card-type').style.transform = 'translatex(5px)';
 
@@ -220,7 +217,6 @@
 
         function validateExpiryDate(cardNumber, month, year) {
             const cardType = getCardType(cardNumber);
-            // General validation for all cards
             const currentDate = new Date();
             const currentMonth = currentDate.getMonth() + 1;
             const currentYear = currentDate.getFullYear();
@@ -236,6 +232,6 @@
         return null;
         }
     </script>
-
+    <script src="../scripts/auth.js"></script>
 </body>
 </html>

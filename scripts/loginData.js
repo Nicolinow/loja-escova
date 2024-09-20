@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
               };
               localStorage.setItem(email, JSON.stringify(userData));
               window.location.href = 'cart.html';
+              localStorage.setItem('isLoggedIn', 'true');
           }
       });
   }

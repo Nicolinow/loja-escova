@@ -71,6 +71,38 @@ main{
                 font-size: 1.8rem;
                 margin: 0;
             }
+            
+            > .column-price.one{
+                opacity: 0.7;
+                position: relative;
+
+                p{
+                    font-size: 1rem;
+                }
+                b{
+                    font-size: 2.2rem;
+                }
+            }
+            > .column-price.one::before{
+                content: '';
+                position: absolute;
+                height: 3px;
+                width: 100%;
+                background-color: #ff0000cc;
+                rotate: 10deg;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            > .column-price.one::after{
+                content: '';
+                position: absolute;
+                height: 3px;
+                width: 100%;
+                background-color: #ff0000cc;
+                rotate: -10deg;
+                top: 50%;
+                transform: translateY(-50%);
+            }
 
             > .column-price{
                 display: flex;

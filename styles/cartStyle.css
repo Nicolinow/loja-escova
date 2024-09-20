@@ -72,6 +72,15 @@ main{
     align-items: center;
 
     > .frete{
+        position: relative;
+
+        span{
+            position: absolute;
+            padding: 8px;
+            border-radius: 10px;
+            top: 45.5%;
+            right: -65%;
+        }
         > h3{
             color: #C1121F;
             font-size: 1.4rem;
@@ -194,11 +203,15 @@ main{
 .Tv{
     max-width: 100px;
 }
+.Tv-product p{
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 10px;
+}
 .quantity{
     width: 20px;
     outline: 1px solid transparent;
     border-radius: 2px;
-    transition: all 0.4s;
 }
 .Qtd-product:has(p:hover) p:hover .quantity{
     outline: 1px solid #cecece;
@@ -206,16 +219,15 @@ main{
 .frete-content {
     opacity: 0;
     transform: translateX(5px);
-    transition: all 0.4s;
 }
 .total-content{
     opacity: 0;
     transform: translateX(5px);
-    transition: all 0.4s 0.2s;
 }
 .fade-in {
     opacity: 0;
     transform: translateX(5px);
+    transition: all 0.4s 0.15s;
 }
 .show {
     opacity: 1;
@@ -260,4 +272,8 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
     appearance: textfield;
     -moz-appearance: textfield;
+}
+.disabled{
+    filter: grayscale(90%);
+    pointer-events: none;
 }

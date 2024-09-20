@@ -2,17 +2,21 @@ const addCarrinhoButtons = document.querySelectorAll('[id^="Add-Carrinho-"]');
 
 function adicionarAoCarrinho(event) {
     const button = event.target;
-    const produtoId = button.id.replace('Add-Carrinho-', '');
+    const produtoId = parseInt(button.id.replace('Add-Carrinho-', ''), 10);
 
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || {};
 
-    // Verifica se o carrinho tem uma entrada para o produtoId
     if (!carrinho[produtoId]) {
         carrinho[produtoId] = 0;
     }
-    carrinho[produtoId] += 1;
 
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    if (carrinho[produtoId] < 9) {
+        carrinho[produtoId] = parseInt(carrinho[produtoId], 10) + 1; // Incrementa como número
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        atualizarNumeroItensCarrinho(); // Atualiza o número de itens no carrinho
+    } else {
+        alert('Você não pode adicionar mais de 9 itens deste produto.');
+    }
 }
 
 function atualizarNumeroItensCarrinho() {
@@ -32,7 +36,6 @@ function atualizarNumeroItensCarrinho() {
     }
 }
 
-// Adiciona o event listener para cada botão
 addCarrinhoButtons.forEach(button => {
     button.addEventListener('click', (event) => {
         adicionarAoCarrinho(event);
@@ -41,4 +44,3 @@ addCarrinhoButtons.forEach(button => {
 });
 
 document.addEventListener('DOMContentLoaded', atualizarNumeroItensCarrinho);
-localStorage.clear();

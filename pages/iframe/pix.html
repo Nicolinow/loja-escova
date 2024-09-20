@@ -27,12 +27,14 @@
 
     <script src="/scripts/buttonBackground.js"></script>
     <script>
+        const amount = localStorage.getItem('valorTotal');
+
         function gerarPixCode() {
             const pixKey = "123456789"; 
             const merchantName = "escovas.com";
             const city = "Rio de Janeiro";
             const transactionId = "TX123456";
-            const amount = "100.00"; // mudar para o valor real da compra
+            const amount = localStorage.getItem('valorTotal').replace(',', '.');
             const pixCode = `00020126360014BR.GOV.BCB.PIX0114${pixKey}5204000053039865406${amount}5802BR5913${merchantName}6008${city}62070503${transactionId}6304`;
             return pixCode;
         }

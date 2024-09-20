@@ -28,6 +28,10 @@
                 <div class="row-content">
                     <div class="column-one">
                         <p>Escova Sustentável</p>
+                        <div class="column-price one">
+                            <p>R$</p>
+                            <b>119,00</b>
+                        </div>
                         <div class="column-price">
                             <p>R$</p>
                             <b>79,00</b>
@@ -140,6 +144,31 @@
         });
 
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const produtos = [
+                { id: '1', nome: 'Escova de bambu com cerdas macias', quantidade: 0, preco: 79.00 },
+                { id: '2', nome: 'Escova individual', quantidade: 0, preco: 29.00 },
+                { id: '3', nome: 'Escova elétrica', quantidade: 0, preco: 154.00 },
+                { id: '4', nome: 'Escova infatil', quantidade: 0, preco: 17.50 },
+                { id: '5', nome: 'Creme dental TANDY', quantidade: 0, preco: 15.00 }
+            ];
+
+            localStorage.setItem('produtos', JSON.stringify(produtos));
+        });
+    </script>
     <script src="./scripts/addToCart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carrinhoLink = document.getElementById('Carrinho');
+            const isUserLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+            if (isUserLoggedIn) {
+                carrinhoLink.href = '/pages/cart.html';
+            } else {
+                carrinhoLink.href = '/pages/signin.html';
+            }
+        });
+    </script>
 </body>
 </html>

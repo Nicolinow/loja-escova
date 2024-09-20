@@ -75,57 +75,61 @@
                 <p>Agora iremos te retornar para a página principal, aguarde alguns segundos, ou faça isso manualmente <a href="/index.html">aqui</a>.</p>
             </div>
         </div>
-
-        <script>
-            function changePayment(paymentMethod) {
-                var iframe = document.querySelector('iframe');
-                switch (paymentMethod) {
-                    case 'debito':
-                        iframe.src = 'iframe/debito.html';
-                        break;
-                    case 'credito':
-                        iframe.src = 'iframe/credito.html';
-                        break;
-                    case 'boleto':
-                        iframe.src = 'iframe/boleto.html';
-                        break;
-                    case 'pix':
-                        iframe.src = 'iframe/pix.html';
-                        break;
-                    default:
-                        iframe.src = '';
-                        break;
-                }
-            }
-
-            document.getElementById('complete').classList.add('hidden')
-
-            function hideCompleteButton() {
-                document.getElementById('complete').classList.add('hidden')
-            }
-            function showCompleteButton() {
-                document.getElementById('complete').classList.remove('hidden')
-            }
-
-            window.addEventListener('message', function(event) {
-                if (event.data === 'completePayment') {
-                    completePayment();
-                }
-            });
-            
-            document.getElementById('complete').addEventListener('click', function() {completePayment()})
-
-            function completePayment(){
-                document.querySelector('.complete-payment').classList.add('active');
-                document.body.style.scale = 1.3;
-                document.body.style.overflow = 'hidden';
-                setTimeout(function() {
-                    window.location.href = '/index.html';
-                }, 10000);
-            };
-
-        </script>
     </main>
 
+    <script>
+        document.getElementById('total-value').textContent += localStorage.getItem('valorTotal');
+    </script>
+    <script>
+        function changePayment(paymentMethod) {
+            var iframe = document.querySelector('iframe');
+            switch (paymentMethod) {
+                case 'debito':
+                    iframe.src = 'iframe/debito.html';
+                    break;
+                case 'credito':
+                    iframe.src = 'iframe/credito.html';
+                    break;
+                case 'boleto':
+                    iframe.src = 'iframe/boleto.html';
+                    break;
+                case 'pix':
+                    iframe.src = 'iframe/pix.html';
+                    break;
+                default:
+                    iframe.src = '';
+                    break;
+            }
+        }
+
+        document.getElementById('complete').classList.add('hidden')
+
+        function hideCompleteButton() {
+            document.getElementById('complete').classList.add('hidden')
+        }
+        function showCompleteButton() {
+            document.getElementById('complete').classList.remove('hidden')
+        }
+
+        window.addEventListener('message', function(event) {
+            if (event.data === 'completePayment') {
+                completePayment();
+            }
+        });
+        
+        document.getElementById('complete').addEventListener('click', function() {completePayment()})
+
+        function completePayment(){
+            localStorage.clear();
+            document.querySelector('.complete-payment').classList.add('active');
+            document.body.style.scale = 1.3;
+            document.body.style.overflow = 'hidden';
+            setTimeout(function() {
+                window.location.href = '/index.html';
+            }, 10000);
+        };
+
+    </script>
+    <script src="../scripts/auth.js"></script>
 </body>
 </html>
